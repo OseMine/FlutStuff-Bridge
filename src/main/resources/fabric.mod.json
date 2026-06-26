@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "flutstuff_bridge",
+  "version": "${version}",
+  "name": "FlutStuff Bridge",
+  "description": "Receives server recipes from FlutStuff Paper plugin and injects them into JEI",
+  "authors": [
+    "osemine"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/flutstuff_bridge/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "de.osemine.flutstuff_bridge.client.Flutstuff_bridgeDataGenerator"
+    ],
+    "client": [
+      "de.osemine.flutstuff_bridge.client.Flutstuff_bridgeClient"
+    ],
+    "main": [
+      "de.osemine.flutstuff_bridge.Flutstuff_bridge"
+    ],
+    "jei_mod_plugin": [
+      "de.osemine.flutstuff_bridge.client.FlutstuffJeiPlugin"
+    ]
+  },
+  "mixins": [
+    "flutstuff_bridge.mixins.json",
+    {
+      "config": "flutstuff_bridge.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "jei": ">=19.0"
+  }
+}
